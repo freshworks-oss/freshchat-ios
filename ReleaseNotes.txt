@@ -2,7 +2,13 @@ Freshchat iOS SDK - Powered by Freshdesk
 
 Documentation   : https://support.freshchat.com
 Support Email   : support@freshchat.com
-Version         : 6.4.4
+Version         : 6.4.5
+
+Ver 6.4.5 
+__________________________
+bugfix:
+- Fixed app stop responding to swipe gestures while opening a topic in a parallel conversation.
+- Fixed an issue where messages sent after the post-resolution feedback survey did not start a new conversation.
 
 Ver 6.4.4 
 __________________________
