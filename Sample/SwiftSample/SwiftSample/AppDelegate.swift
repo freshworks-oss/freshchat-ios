@@ -32,14 +32,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
 
+    private func environmentValue(_ key: String) -> String {
+        return ProcessInfo.processInfo.environment[key] ?? ""
+    }
+    
     func initFreshchatSDK() {
-        let appID = "appid"
-        let appKey = "appkey"
-        let domain = "domain"
-
-        let fchatConfig = FreshchatConfig.init(appID: appID, andAppKey: appKey) //Enter your AppID and AppKey here
+        // Fetch values from Xcode Cloud environment variables
+        //For local testing replace with values
+        var appID = environmentValue("FRESHCHAT_APP_ID")
+        var appKey = environmentValue("FRESHCHAT_APP_KEY")
+        var domain = environmentValue("FRESHCHAT_DOMAIN")
+        
+        guard !appID.isEmpty, !appKey.isEmpty, !domain.isEmpty else {
+            assertionFailure("Freshchat SDK credentials are missing")
+            return
+        }
+        
+        // Freshchat configuration
+        let fchatConfig = FreshchatConfig(appID: appID, andAppKey: appKey)
         fchatConfig.domain = domain
-//        fchatConfig.themeName = "CustomThemeFile"
+        fchatConfig.themeName = "CustomThemeFile"
+        
+        // Initialize Freshchat
         Freshchat.sharedInstance().initWith(fchatConfig)
     }
     
