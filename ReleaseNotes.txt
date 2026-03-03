@@ -2,6 +2,18 @@ Freshchat iOS SDK - Powered by Freshdesk
 
 Documentation   : https://support.freshchat.com
 Support Email   : support@freshchat.com
+Version         : 6.4.6
+
+Ver 6.4.6 
+__________________________
+Bug Fixes:
+- Fixed a namespace collision issue between FreshchatSDK and the NewsCore framework.
+- Fixed a rare issue where initial AI agent or bot messages were repeated and getting grouped (clumped) together.
+- Fixed an issue where the keyboard was being dismissed automatically while the user was typing when an AI agent or bot responding to chat conversation.
+Freshchat iOS SDK - Powered by Freshdesk
+
+Documentation   : https://support.freshchat.com
+Support Email   : support@freshchat.com
 Version         : 6.4.5
 
 Ver 6.4.5 
