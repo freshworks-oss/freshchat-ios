@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         		 = "FreshchatSDK"
-  s.version      		 = "6.4.6" 
+  s.version      		 = "6.4.7" 
   s.summary      		 = "Freshchat iOS SDK - Modern messaging software that your sales and customer engagement teams will love."
   s.description  		 = <<-DESC
                    			Modern messaging software that your sales and customer engagement teams will love.
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author       		 = { "Freshdesk" => "support@freshchat.com" }
   s.social_media_url     = "https://twitter.com/freshchatapp"
   s.platform     		 = :ios, "12.0"
-  s.source       		 = { :git => "https://github.com/freshworks/freshchat-ios.git", :tag => "v#{s.version}" }
+  s.source       		 = { :git => "https://github.com/freshworks-oss/freshchat-ios.git", :tag => "v#{s.version}" }
   s.frameworks 			 = "Foundation", "AVFoundation", "AudioToolbox", "CoreMedia", "CoreData", "ImageIO", "Photos", "SystemConfiguration", "Security", "WebKit", "CoreServices", "QuickLook"
   s.requires_arc 		 = true
   s.preserve_paths      = "FreshchatSDK.xcframework"
