@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.author       		 = { "Freshdesk" => "support@freshchat.com" }
   s.social_media_url     = "https://twitter.com/freshchatapp"
   s.platform     		 = :ios, "12.0"
-  s.source       		 = { :git => "https://github.com/freshworks/freshchat-ios.git", :tag => "v#{s.version}" }
+  s.source       		 = { :git => "https://github.com/freshworks-oss/freshchat-ios.git", :tag => "v#{s.version}" }
   s.frameworks 			 = "Foundation", "AVFoundation", "AudioToolbox", "CoreMedia", "CoreData", "ImageIO", "Photos", "SystemConfiguration", "Security", "WebKit", "CoreServices", "QuickLook"
   s.requires_arc 		 = true
   s.preserve_paths      = "FreshchatSDK.xcframework"
