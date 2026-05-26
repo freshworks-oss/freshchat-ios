@@ -29,3 +29,10 @@ PBXPROJ_FILE="$CI_PRIMARY_REPOSITORY_PATH/Sample/SwiftSample/SwiftSample.xcodepr
 sed -i '' "s/branch = \".*\";/branch = \"$CI_BRANCH\";/" "$PBXPROJ_FILE"
 
 echo "SPM package branch updated to '$CI_BRANCH' in project.pbxproj"
+
+# Remove Package.resolved to force Xcode to re-resolve with the updated branch
+RESOLVED_FILE="$CI_PRIMARY_REPOSITORY_PATH/Sample/SwiftSample/SwiftSample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"
+if [ -f "$RESOLVED_FILE" ]; then
+  rm "$RESOLVED_FILE"
+  echo "Removed Package.resolved to force fresh package resolution"
+fi
