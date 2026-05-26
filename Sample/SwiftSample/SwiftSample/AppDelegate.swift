@@ -32,16 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
 
-    private func environmentValue(_ key: String) -> String {
-        return ProcessInfo.processInfo.environment[key] ?? ""
+    private func infoPlistValue(_ key: String) -> String {
+        return Bundle.main.infoDictionary?[key] as? String ?? ""
     }
     
     func initFreshchatSDK() {
-        // Fetch values from Xcode Cloud environment variables
-        //For local testing replace with values
-        var appID = environmentValue("FRESHCHAT_APP_ID")
-        var appKey = environmentValue("FRESHCHAT_APP_KEY")
-        var domain = environmentValue("FRESHCHAT_DOMAIN")
+        // Values are injected into Info.plist via build settings (xcconfig).
+        // In Xcode Cloud, ci_post_clone.sh generates Secrets.generated.xcconfig from environment variables.
+        // For local testing, replace the values below accordingly.
+        let appID = infoPlistValue("FRESHCHAT_APP_ID")
+        let appKey = infoPlistValue("FRESHCHAT_APP_KEY")
+        let domain = infoPlistValue("FRESHCHAT_DOMAIN")
         
         guard !appID.isEmpty, !appKey.isEmpty, !domain.isEmpty else {
             assertionFailure("Freshchat SDK credentials are missing")

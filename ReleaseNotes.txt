@@ -2,7 +2,13 @@ Freshchat iOS SDK - Powered by Freshdesk
 
 Documentation   : https://support.freshchat.com
 Support Email   : support@freshchat.com
-Version         : 6.4.8
+Version         : 6.4.9
+
+Ver 6.4.9
+__________________________
+Bug fix :
+- Fixed an issue in the “Browse from Files” upload screen where the keyboard was not dismissed when tapping outside the input area.
+- Fixed the auto-scroll to cursor position issue in the reply editor, allowing users to scroll through the message content while typing.
 
 Ver 6.4.8 
 __________________________
