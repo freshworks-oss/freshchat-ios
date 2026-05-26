@@ -26,15 +26,26 @@ echo "Updating SPM package branch to: $CI_BRANCH"
 PBXPROJ_FILE="$CI_PRIMARY_REPOSITORY_PATH/Sample/SwiftSample/SwiftSample.xcodeproj/project.pbxproj"
 
 # Replace the branch value in the XCRemoteSwiftPackageReference requirement
-sed -i '' "s/branch = \".*\";/branch = \"$CI_BRANCH\";/" "$PBXPROJ_FILE"
+sed -i '' "s/branch = [^;]*;/branch = $CI_BRANCH;/" "$PBXPROJ_FILE"
 
 echo "SPM package branch updated to '$CI_BRANCH' in project.pbxproj"
 
-# Re-resolve packages so Package.resolved reflects the updated branch.
-# Xcode Cloud requires Package.resolved to be present (automatic resolution is disabled).
-echo "Re-resolving package dependencies for updated branch..."
-xcodebuild -resolvePackageDependencies \
-  -project "$CI_PRIMARY_REPOSITORY_PATH/Sample/SwiftSample/SwiftSample.xcodeproj" \
-  -scheme SwiftSample
+# Update Package.resolved in-place — Xcode Cloud requires the file to exist at all times
+# (automatic package resolution is disabled), so we never delete it.
+# Instead, fetch the latest commit hash for the target branch and patch the file directly.
+RESOLVED_FILE="$CI_PRIMARY_REPOSITORY_PATH/Sample/SwiftSample/SwiftSample.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"
 
-echo "Package dependencies resolved successfully"
+echo "Fetching latest commit hash for branch '$CI_BRANCH'..."
+NEW_REVISION=$(git ls-remote https://github.com/freshworks/freshchat-ios "refs/heads/$CI_BRANCH" | cut -f1)
+
+if [ -z "$NEW_REVISION" ]; then
+  echo "Error: Branch '$CI_BRANCH' not found in freshchat-ios repository"
+  exit 1
+fi
+
+echo "Resolved '$CI_BRANCH' to commit: $NEW_REVISION"
+
+sed -i '' "s/\"branch\" : \".*\"/\"branch\" : \"$CI_BRANCH\"/" "$RESOLVED_FILE"
+sed -i '' "s/\"revision\" : \".*\"/\"revision\" : \"$NEW_REVISION\"/" "$RESOLVED_FILE"
+
+echo "Package.resolved updated to branch '$CI_BRANCH' at $NEW_REVISION"

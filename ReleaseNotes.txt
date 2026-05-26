@@ -7,7 +7,7 @@ Version         : 6.4.9
 Ver 6.4.9
 __________________________
 Bug fix :
-- Fixed an issue in the upload screen to dismiss keyboard upon tapping the screen.
+- Fixed an issue in the “Browse from Files” upload screen where the keyboard was not dismissed when tapping outside the input area.
 - Fixed the auto-scroll to cursor position issue in the reply editor, allowing users to scroll through the message content while typing.
 
 Ver 6.4.8 
