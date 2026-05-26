@@ -12,6 +12,7 @@
 
 /* Begin PBXFileReference section */
 		564E00B02D3A5E07000EF2B1 /* SwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9D808102FC1D4A0003FD4F4 /* Secrets.generated.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.generated.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -50,6 +51,7 @@
 		564E00A72D3A5E07000EF2B1 = {
 			isa = PBXGroup;
 			children = (
+				F9D808102FC1D4A0003FD4F4 /* Secrets.generated.xcconfig */,
 				564E00B22D3A5E07000EF2B1 /* SwiftSample */,
 				564E00B12D3A5E07000EF2B1 /* Products */,
 			);
@@ -149,6 +151,7 @@
 /* Begin XCBuildConfiguration section */
 		564E00C42D3A5E0C000EF2B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D808102FC1D4A0003FD4F4 /* Secrets.generated.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -185,6 +188,7 @@
 		};
 		564E00C52D3A5E0C000EF2B1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9D808102FC1D4A0003FD4F4 /* Secrets.generated.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

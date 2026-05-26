@@ -68,3 +68,6 @@ sonar-reports/
 .scannerwork
 test-reports/
 .ruby-version
+
+# Generated secrets config (Xcode Cloud injects values at build time)
+Secrets.generated.xcconfig
