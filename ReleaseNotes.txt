@@ -2,7 +2,13 @@ Freshchat iOS SDK - Powered by Freshdesk
 
 Documentation   : https://support.freshchat.com
 Support Email   : support@freshchat.com
-Version         : 6.5.0
+Version         : 6.5.1
+
+Ver 6.5.1
+__________________________
+Bug fix :
+- Fixed an issue where bot welcome messages showed an earlier time instead of the current time when a resolved conversation was started again.
+- Fixed an issue where some new conversations skipped the bot and were routed directly to an agent.
 
 Ver 6.5.0
 __________________________
